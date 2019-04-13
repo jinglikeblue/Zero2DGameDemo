@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using UnityEngine;
 
 namespace Jing
 {
@@ -66,11 +64,6 @@ namespace Jing
                 {
                     _data.Add(cols.ToArray());
                 }
-
-                //foreach (var str in cols)
-                //{
-                    //Debug.Log(str);
-                //}
             }
 
             _rowCount = _data.Count;
@@ -112,14 +105,6 @@ namespace Jing
                 char c = rowContent[charIdx];
                 int nextIdx = charIdx + 1;
 
-                if (nextIdx == rowContent.Length)
-                {
-                    //结束符
-                    string colContent = rowContent.Substring(splitMark);
-                    cols.Add(colContent);
-                    break;
-                }
-
                 if (charIdx == splitMark)
                 {                    
                     if (c == QUOTATION_MARKS)
@@ -129,6 +114,13 @@ namespace Jing
                     else
                     {
                         isSpecial = false;
+                        if(nextIdx == rowContent.Length)
+                        {
+                            //结束符
+                            string colContent = rowContent.Substring(splitMark);
+                            cols.Add(colContent);
+                            break;
+                        }
                     }
                 }
                 else
@@ -177,6 +169,14 @@ namespace Jing
                             cols.Add(colContent);
                             splitMark = charIdx + 1;                            
                         }
+
+                        if (nextIdx == rowContent.Length)
+                        {
+                            //结束符
+                            string colContent = rowContent.Substring(splitMark);
+                            cols.Add(colContent);
+                            break;
+                        }
                     }
                 }
 
@@ -197,10 +197,6 @@ namespace Jing
 
         System.Text.Encoding GetEncoding(FileStream fs)
         {
-            /*byte[] Unicode=new byte[]{0xFF,0xFE};  
-            byte[] UnicodeBIG=new byte[]{0xFE,0xFF};  
-            byte[] UTF8=new byte[]{0xEF,0xBB,0xBF};*/
-
             BinaryReader r = new BinaryReader(fs, System.Text.Encoding.Default);
             byte[] ss = r.ReadBytes(3);
             r.Close();
