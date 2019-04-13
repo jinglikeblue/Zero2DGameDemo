@@ -39,7 +39,7 @@ namespace Jing.I18n
             {
                 string[] kv = dicTable[i];
                 _dic[kv[0]] = kv[1];
-                //Debug.LogFormat("翻译内容：{0} => {1}", kv[0], kv[1]);
+                UnityEngine.Debug.LogFormat("翻译内容：{0} => {1}", kv[0], kv[1]);
             }
         }
 

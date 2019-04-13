@@ -111,6 +111,15 @@ namespace Jing
             {
                 char c = rowContent[charIdx];
                 int nextIdx = charIdx + 1;
+
+                if (nextIdx == rowContent.Length)
+                {
+                    //结束符
+                    string colContent = rowContent.Substring(splitMark);
+                    cols.Add(colContent);
+                    break;
+                }
+
                 if (charIdx == splitMark)
                 {                    
                     if (c == QUOTATION_MARKS)
@@ -167,13 +176,6 @@ namespace Jing
                             string colContent = rowContent.Substring(splitMark, charIdx - splitMark);
                             cols.Add(colContent);
                             splitMark = charIdx + 1;                            
-                        }
-
-                        if (nextIdx == rowContent.Length)
-                        {
-                            //结束符
-                            string colContent = rowContent.Substring(splitMark);
-                            cols.Add(colContent);
                         }
                     }
                 }
