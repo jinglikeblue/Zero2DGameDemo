@@ -1,7 +1,8 @@
-﻿using Jing.Data;
+﻿using Jing;
 using Jing.Debug;
 using Jing.I18n;
 using System;
+using System.Text;
 using UnityEngine;
 
 namespace Sokoban
@@ -98,7 +99,7 @@ namespace Sokoban
                 case SystemLanguage.Chinese:
                 case SystemLanguage.ChineseSimplified:
                     var obj = Resources.Load<TextAsset>("CN");
-                    CSVFile csv = new CSVFile(obj.bytes);
+                    CSVFile csv = new CSVFile(obj.bytes, Encoding.UTF8);
                     i18n.SetData(csv.Data);
                     break;
                 default:

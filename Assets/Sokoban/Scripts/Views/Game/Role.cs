@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using Jing.FSM;
+using Jing;
 
 namespace Sokoban
 {
@@ -43,9 +43,9 @@ namespace Sokoban
             _fsm.SwitchState(EState.IDLE);            
         }
 
-        void OnEnterState(EState state)
+        void OnEnterState(EState state, object data)
         {
-            switch (_fsm.curState)
+            switch (_fsm.CurState)
             {
                 case EState.IDLE:
                     _isMove = false;
@@ -73,9 +73,9 @@ namespace Sokoban
             }
         }
 
-        void OnUpdateMoveState(EState state, float deltaTime)
+        void OnUpdateMoveState(EState state)
         {
-            this.transform.localPosition = Vector3.MoveTowards(this.transform.localPosition, _targetPos, deltaTime * _moveSpeed);
+            this.transform.localPosition = Vector3.MoveTowards(this.transform.localPosition, _targetPos, Time.fixedDeltaTime * _moveSpeed);
             if (_targetPos == this.transform.localPosition)
             {
                 _tile = _toTilePos;
@@ -101,7 +101,7 @@ namespace Sokoban
         public void Move(EDir dir)
         {
             _dir = dir;
-            if (_fsm.curState == EState.MOVE)
+            if (_fsm.CurState == EState.MOVE)
             {
                 return;
             }
