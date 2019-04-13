@@ -1,0 +1,40 @@
+ManifestFileVersion: 0
+CRC: 652566079
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: resources.ab
+      Dependencies: {}
+    Info_1:
+      Name: audios.ab
+      Dependencies: {}
+    Info_2:
+      Name: configs/i18n.ab
+      Dependencies: {}
+    Info_3:
+      Name: configs/levels.ab
+      Dependencies: {}
+    Info_4:
+      Name: prefabs.ab
+      Dependencies:
+        Dependency_0: auto_depends/cross_0.ab
+    Info_5:
+      Name: prefabs/game.ab
+      Dependencies:
+        Dependency_0: audios.ab
+        Dependency_1: auto_depends/cross_1.ab
+    Info_6:
+      Name: prefabs/menu.ab
+      Dependencies: {}
+    Info_7:
+      Name: prefabs/stages.ab
+      Dependencies:
+        Dependency_0: prefabs/game.ab
+        Dependency_1: auto_depends/cross_0.ab
+        Dependency_2: auto_depends/cross_1.ab
+    Info_8:
+      Name: auto_depends/cross_0.ab
+      Dependencies: {}
+    Info_9:
+      Name: auto_depends/cross_1.ab
+      Dependencies: {}

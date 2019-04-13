@@ -1,0 +1,64 @@
+ManifestFileVersion: 0
+CRC: 4159296310
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c0aefdf3b1af49757d8f41534cafa98f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 38a7245ca2f6c062f474197e1d915e9b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1bba5b0536ed25246b4e94cccf528321, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 234fe7f58e99a6a4c8c6fc95afec9831, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4aff13d66ee2396409048f7e9df22e50, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 064292871cc2f58409c69e748895cc82, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 370c6afabe49d2649b266df1520ab9ca, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+- Class: 225
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Prefabs/Game/BangEffect.prefab
+- Assets/Resources/Prefabs/Game/Joystick.prefab
+- Assets/Resources/Prefabs/Game/Block.prefab
+- Assets/Resources/Prefabs/Game/Target.prefab
+- Assets/Resources/Prefabs/Game/Box.prefab
+- Assets/Resources/Prefabs/Game/JoystickPanel.prefab
+- Assets/Resources/Prefabs/Game/Role.prefab
+Dependencies:
+- G:/Projects/Zero2DGameDemo/./res/pc/ab/audios.ab
+- G:/Projects/Zero2DGameDemo/./res/pc/ab/auto_depends/cross_1.ab

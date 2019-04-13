@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 4207071280
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f00428e1d2271c59a3cfd7eb2d2b0dc5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Sokoban/Res/Imgs/UI/txz_btn_blue_02.png
+- Assets/Sokoban/Res/Imgs/UI/txz_btn_blue.png
+- Assets/Sokoban/Res/Imgs/UI/txz_btn_gb.png
+- Assets/Sokoban/Res/Imgs/UI/txz_gkxz_sz_05.png
+- Assets/Sokoban/Res/Imgs/sokonban_gamelogo.png
+- Assets/Sokoban/Res/Imgs/UI/txz_gkxz_sz_04.png
+- Assets/Sokoban/Res/Imgs/UI/txz_btn_yellow.png
+- Assets/Sokoban/Res/Imgs/UI/txz_gkxz_sz_09.png
+- Assets/Sokoban/Res/Imgs/UI/txz_gkxz_sz_06.png
+- Assets/Sokoban/Res/Imgs/UI/txz_gkxz_sz_01.png
+- Assets/Sokoban/Res/Imgs/UI/txz_gkxz_sz_02.png
+- Assets/Sokoban/Res/Imgs/UI/txz_gkxz_sz_03.png
+- Assets/Sokoban/Res/Imgs/UI/txz_gkxz_sz_00.png
+- Assets/Sokoban/Res/Imgs/UI/txz_btn_yellow_02.png
+- Assets/Sokoban/Res/Imgs/UI/txz_gkxz_sz_07.png
+- Assets/Sokoban/Res/Imgs/UI/txz_gkxz_sz_08.png
+Dependencies: []

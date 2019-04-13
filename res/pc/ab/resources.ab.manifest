@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 2969222720
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 620e0d58d885715694b705075244652e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0610827dbb246dabab1b627d42af5c85
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 16995157, guid: a811bde74b26b53498b4f6d872b09b6d, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/DOTweenSettings.asset
+Dependencies: []

@@ -1,0 +1,104 @@
+ManifestFileVersion: 0
+CRC: 2991747495
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: dfe7408fd72067a385efec324c960b0c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 237b96d2ac72817bb1e55addd19d5980
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1741964061, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -2095666955, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -1200242548, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1367256648, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -405508275, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: 1679637790, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b583749086003d8469338eb83ee73e93, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ccb6e2e469167fa458a9cc93505b548b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 064292871cc2f58409c69e748895cc82, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 15e38329187af0e4483cbdbbf3940ed9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 51696ff9dd8caf240a7f16ec118c7bca, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8782b9eb7e3aae84a9de358316089cdb, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ba50c46c3c583024fbde06773014a375, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4ef5c57ce576d7641a7113cb265431d9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b45296aedb014924d9f028c4c84b1559, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5c7e4baff6450394dbd711b651f34417, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 388d37df367978c4da65ecfb04fa2b24, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+- Class: 225
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Prefabs/Stages/Menu.prefab
+- Assets/Resources/Prefabs/Stages/Game.prefab
+Dependencies:
+- G:/Projects/Zero2DGameDemo/./res/pc/ab/prefabs/game.ab
+- G:/Projects/Zero2DGameDemo/./res/pc/ab/auto_depends/cross_0.ab
+- G:/Projects/Zero2DGameDemo/./res/pc/ab/auto_depends/cross_1.ab

@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 727147347
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6a9fb4fe02e7e649b758fd6ecce4952a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Audios/push.mp3
+- Assets/Resources/Audios/boot.mp3
+- Assets/Resources/Audios/bgm.mp3
+Dependencies: []
