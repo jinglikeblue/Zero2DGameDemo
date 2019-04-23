@@ -1,5 +1,4 @@
-﻿using Sokoban;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -52,6 +51,11 @@ namespace Sokoban
 
         bool _isStickMode = false;
 
+        private void Awake()
+        {
+            camera = Camera.main;
+        }
+
         void Start() {
             _stickBorderInitPos = stickBorder.position;
         }
@@ -103,7 +107,7 @@ namespace Sokoban
                 if (_lastValue != tempValue)
                 {
                     _lastValue = (Vector2)tempValue;
-                    onStickValueChange(_lastValue);
+                    onStickValueChange?.Invoke(_lastValue);
                 }
             }
         }
@@ -127,17 +131,19 @@ namespace Sokoban
         
         
         public void OnPointerDown(BaseEventData e)
-        {
-            Main.current.console.Output("PointerDown");                                   
-            stickBorder.position = Input.mousePosition;           
+        {                                            
+            var pos = camera.ScreenToWorldPoint(Input.mousePosition);
+            pos.z = 0;
+            stickBorder.position = pos;
+            pos = stickBorder.localPosition;
+            pos.z = 0;
+            stickBorder.localPosition = pos;
 
             stickBorder.GetComponent<CanvasGroup>().alpha = 0.4f;
         }
 
         public void OnBeginDrag(BaseEventData e)
         {
-            Main.current.console.Output("BeginDrag");
-
             _stickPos = stick.position;
             _stickPos.z = 0;
 
@@ -148,12 +154,11 @@ namespace Sokoban
 
         public void OnDrag(BaseEventData e)
         {
-            Main.current.console.Output("Drag");
             Vector3 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
 
             var moveVector = (mousePos - _touchStartPos);
-            //Debug.LogFormat("start:{0}   mouse:{1}    moved:{2}", startPos, Input.mousePosition, moveVector);
+            Debug.LogFormat("start:{0}   mouse:{1}    moved:{2}", _touchStartPos, Input.mousePosition, moveVector);
             if (moveVector.magnitude > maxRadius)
             {
                 var k = moveVector.magnitude / maxRadius;
@@ -174,15 +179,14 @@ namespace Sokoban
             if (_lastValue != value)
             {
                 _lastValue = (Vector2)value;
-                onStickValueChange(_lastValue);
+                onStickValueChange?.Invoke(_lastValue);
             }
         }
 
         public void OnEndDrag(BaseEventData e)
         {
-            Main.current.console.Output("EndDrag");
             stick.localPosition = Vector3.zero;
-            onStickValueChange(Vector2.zero);
+            onStickValueChange?.Invoke(Vector2.zero);
             _isStickMode = false;
 
             ResetStickBorder();
