@@ -1,9 +1,7 @@
 ﻿using Jing;
-using Jing.UI;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zero;
 
 namespace Sokoban
 {
@@ -22,7 +20,7 @@ namespace Sokoban
 
         Texture2D _sharePic;
 
-        public BitmapFont textLevel;
+        public BitmapText textLevel;
 
         /// <summary>
         /// 分享模式 0：无   1：朋友圈   2：好友
@@ -93,7 +91,7 @@ namespace Sokoban
 
         private void OnEnable()
         {
-            textLevel.text = DC.ins.selectedLevel.ToString();
+            textLevel.Text = DC.ins.selectedLevel.ToString();
             GetComponent<WindowTween>().Show(()=> {
                 _isCaptureScreen = true;
             });            

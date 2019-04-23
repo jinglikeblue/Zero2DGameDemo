@@ -72,7 +72,6 @@ GameObject:
   - component: {fileID: 4727775106977356}
   - component: {fileID: 20052003588507612}
   - component: {fileID: 81754100637521726}
-  - component: {fileID: 114730091618331106}
   m_Layer: 0
   m_Name: UICamera
   m_TagString: Untagged
@@ -193,7 +192,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 54
-  orthographic: 0
+  orthographic: 1
   orthographic size: 3.6
   m_Depth: 1
   m_CullingMask:
@@ -287,20 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5fa48df979f21409ed181ea3839f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114730091618331106
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1622082812772132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7162394c07bb5d047886bb82b43e285b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isResetAspect: 1
-  aspectW: 640
-  aspectH: 960
 --- !u!114 &114769163732303082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -315,7 +300,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 640, y: 960}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -346,7 +331,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 1047701119
+  m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!223 &223190718547781210
@@ -366,7 +351,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 1047701119
+  m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!223 &223664259626682216

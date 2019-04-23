@@ -1,16 +1,13 @@
-﻿using Jing.UI;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using Zero;
 
 namespace Sokoban
 {
     public class LevelItem : MonoBehaviour
     {
 
-        public BitmapFont textLevel;
+        public BitmapText textLevel;
         public Text textStep;
         public GameObject imgLock;
 
@@ -34,7 +31,7 @@ namespace Sokoban
         public void SetData(int level)
         {
             _level = level;
-            textLevel.text = level.ToString();
+            textLevel.Text = level.ToString();
             int step = DC.ins.save.GetLevelStepCount(level);
             textStep.text = -1 == step ? "" : string.Format("{0}", step);
 
