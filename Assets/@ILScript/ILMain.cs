@@ -33,6 +33,7 @@ namespace IL
             ViewFactory.Register<GamePanel>(AssetBundleName.PREFABS, "GamePanel");
             ViewFactory.Register<CreditsWin>(AssetBundleName.PREFABS, "CreditsWin");
             ViewFactory.Register<LevelSelectWin>(AssetBundleName.PREFABS, "LevelSelectWin");
+            ViewFactory.Register<MsgWin>(AssetBundleName.PREFABS, "MsgWin");
         }
     }
 }

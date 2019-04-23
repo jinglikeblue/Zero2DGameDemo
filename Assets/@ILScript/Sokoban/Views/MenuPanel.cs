@@ -36,7 +36,7 @@ namespace IL
 
         private void Start()
         {
-
+            MsgWin.Show("敬请期待！");
         }
 
         private void SelectLevel()
