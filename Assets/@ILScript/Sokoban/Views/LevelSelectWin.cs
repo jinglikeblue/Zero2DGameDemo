@@ -49,10 +49,21 @@ namespace IL
 
         class ItemView : AView
         {
+            int _level = -1;
             protected override void OnData(object data)
             {
-                int level = (int)data;
-                GetChildComponent<BitmapText>("Image/TextLevel").Text = level.ToString();
+                _level = (int)data;
+                GetChildComponent<BitmapText>("Image/TextLevel").Text = _level.ToString();
+            }
+
+            protected override void OnEnable()
+            {
+                GetChildComponent<Button>("Image").onClick.AddListener(SelectLevel);
+            }
+
+            private void SelectLevel()
+            {
+                Log.I("选择的关卡:{0}", _level);
             }
         }
     }
