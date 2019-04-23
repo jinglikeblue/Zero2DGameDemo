@@ -388,10 +388,10 @@ MonoBehaviour:
     hotResMode: 2
     netRoot: 
     localResRoot: Res
-    isUseDll: 0
+    isUseDll: 1
     ilType: 0
     fileName: ILProject
-    className: IL.Sokoban.ILMain
+    className: IL.ILMain
     methodName: Main
     isDebugIL: 1
     isLoadPdb: 1

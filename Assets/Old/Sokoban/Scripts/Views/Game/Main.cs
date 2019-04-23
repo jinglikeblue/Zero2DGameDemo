@@ -1,6 +1,6 @@
-﻿using Jing;
+﻿using IL;
+using Jing;
 using Jing.Debug;
-using Jing.I18n;
 using System;
 using System.Text;
 using UnityEngine;

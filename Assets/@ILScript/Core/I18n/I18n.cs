@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
-namespace Jing.I18n
+namespace IL
 {
     /// <summary>
     /// 多语言处理(母语为简体中文)

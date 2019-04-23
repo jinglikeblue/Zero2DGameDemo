@@ -89,6 +89,9 @@ GameObject:
   - component: {fileID: 224101455622452906}
   - component: {fileID: 222782847266749336}
   - component: {fileID: 114023774686149208}
+  - component: {fileID: 114801456087777536}
+  - component: {fileID: 114017340207881726}
+  - component: {fileID: 95834915251356562}
   m_Layer: 5
   m_Name: Blur
   m_TagString: Untagged
@@ -216,6 +219,35 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1622082812772132}
   m_Enabled: 1
+--- !u!95 &95834915251356562
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1700441824720938}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6f772ba56274e3e4ebddcd15c929f1a3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114017340207881726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1700441824720938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3673e4fe89a7b04db095fe4ff67d5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114023774686149208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -307,6 +339,17 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114801456087777536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1700441824720938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 153e890cd4694a044a76dda0b45eb582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222782847266749336
 CanvasRenderer:
   m_ObjectHideFlags: 1

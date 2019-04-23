@@ -9,7 +9,7 @@ namespace IL
     {
         public MenuModule()
         {
-            ViewFactory.Register<MenuPanel>(AssetBundleName.PREFABS, "MenuPanel");
+            
         }
 
         protected override void Dispose()
@@ -19,7 +19,7 @@ namespace IL
 
         public void ShowMenu()
         {
-            Global.Ins.panelLayer.Show<MenuPanel>();
+            UIPanelMgr.Ins.Switch<MenuPanel>();            
         }
     }
 }

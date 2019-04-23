@@ -161,7 +161,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224885422395081006}
-  - component: {fileID: 114562558450752278}
   m_Layer: 5
   m_Name: StartupMenu
   m_TagString: Untagged
@@ -593,18 +592,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114562558450752278
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1789196606102916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b583749086003d8469338eb83ee73e93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btnStart: {fileID: 114352512762487658}
 --- !u!114 &114630232428443956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -812,7 +799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.65}
+  m_AnchoredPosition: {x: 0, y: 3.6500015}
   m_SizeDelta: {x: 0, y: -7.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224314291023946444
@@ -849,7 +836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2.84}
+  m_AnchoredPosition: {x: 0, y: 2.8400002}
   m_SizeDelta: {x: 0, y: -5.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224510594235572582
@@ -905,7 +892,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.88}
+  m_AnchoredPosition: {x: 0, y: 3.880001}
   m_SizeDelta: {x: 0, y: -7.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224630290485256730

@@ -1,4 +1,4 @@
-﻿using Jing.I18n;
+﻿using IL;
 using System.Collections.Generic;
 using UnityEngine;
 
