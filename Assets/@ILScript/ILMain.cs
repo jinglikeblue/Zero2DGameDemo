@@ -1,4 +1,5 @@
-﻿using IL.Zero;
+﻿using DG.Tweening;
+using IL.Zero;
 using Jing;
 using System.Text;
 using UnityEngine;
@@ -10,6 +11,8 @@ namespace IL
     {
         public static void Main()
         {
+            DOTween.defaultEaseType = Ease.Linear;
+            DOTween.Init();
             Application.targetFrameRate = 60;
             UIPanelMgr.Ins.Init(GameObject.Find("UIPanel").transform);
             StageMgr.Ins.Init(GameObject.Find("Stage").transform);
