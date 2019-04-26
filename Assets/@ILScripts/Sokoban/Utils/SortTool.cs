@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Jing.Data
+namespace IL
 {
     /// <summary>
     /// 对对象进行排序的工具

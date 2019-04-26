@@ -23,7 +23,7 @@ namespace IL
 
         protected override void OnInit()
         {
-
+            base.OnInit();
         }
 
         public void Move(EDir dir)

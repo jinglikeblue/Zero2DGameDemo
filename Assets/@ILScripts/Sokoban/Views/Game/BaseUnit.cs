@@ -27,7 +27,7 @@ namespace IL
 
         protected override void OnInit()
         {
-            _sr = GetChildComponent<SpriteRenderer>("Img");
+            _sr = GetChildComponent<SpriteRenderer>(0);
         }
 
         /// <summary>
@@ -59,7 +59,11 @@ namespace IL
         /// <param name="v"></param>
         public void SetSortValue(int v)
         {
-            _sr.sortingOrder = v;
+            if (null == _sr)
+            {
+                Debug.Log(Name);
+            }
+            _sr.sortingOrder = v;            
         }
     }
 }

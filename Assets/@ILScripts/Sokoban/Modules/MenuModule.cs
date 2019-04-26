@@ -24,6 +24,7 @@ namespace IL
 
         public void EnterLevel(int level)
         {
+            UIWinMgr.Ins.CloseAll();
             Global.Ins.lv = new LevelModel(level);
             UIPanelMgr.Ins.Switch<GamePanel>();
         }
