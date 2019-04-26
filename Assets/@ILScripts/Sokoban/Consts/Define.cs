@@ -36,8 +36,8 @@
         static public float TILE_SIZE = 0.48f;
 
         /// <summary>
-        /// 地图大小（MAP_SIZE * MAP_SIZE 格子数）
+        /// 地图大小（MAP_TILE_COUNT_OF_SIDE * MAP_TILE_COUNT_OF_SIDE 格子数）
         /// </summary>
-        static public int MAP_SIZE = 16;
+        static public int MAP_TILE_COUNT_OF_SIDE = 16;
     }
 }
