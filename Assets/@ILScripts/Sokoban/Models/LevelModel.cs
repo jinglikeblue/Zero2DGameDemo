@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
+using Zero;
 
-namespace Sokoban
+namespace IL
 {
     public class LevelModel
     {
@@ -14,31 +15,31 @@ namespace Sokoban
         /// <summary>
         /// 阻挡
         /// </summary>
-        public AUnitVO[] blocks;
+        public UnitVO[] blocks;
 
         /// <summary>
         /// 角色初始位置
         /// </summary>
-        public AUnitVO[] roles;
+        public UnitVO[] roles;
 
         /// <summary>
         /// 箱子的初始位置
         /// </summary>
-        public AUnitVO[] boxes;
+        public UnitVO[] boxes;
 
         /// <summary>
         /// 目标点
         /// </summary>
-        public AUnitVO[] targets;
+        public UnitVO[] targets;
 
         private XmlDocument _xml;
 
-        Dictionary<string, AUnitVO> _unitDic = new Dictionary<string, AUnitVO>();
+        Dictionary<string, UnitVO> _unitDic = new Dictionary<string, UnitVO>();
 
         public LevelModel(int levelId)
         {
-            id = levelId;
-            TextAsset data = Resources.Load<TextAsset>("Levels/level" + levelId);
+            id = levelId;            
+            TextAsset data = ResMgr.Ins.Load<TextAsset>("configs/levels/level" + levelId);
             var xml = new XmlDocument();
             xml.LoadXml(data.text);
             _xml = xml;
@@ -49,18 +50,18 @@ namespace Sokoban
             targets = GetUnitVO("targets", EUnitType.TARGET);
         }
 
-        AUnitVO[] GetUnitVO(string type, EUnitType unitType)
+        UnitVO[] GetUnitVO(string type, EUnitType unitType)
         {
             var levelNode = _xml.SelectSingleNode("level");
             XmlNodeList unitNodes = levelNode.SelectSingleNode(type).SelectNodes("unit");
-            AUnitVO[] units = new AUnitVO[unitNodes.Count];
+            UnitVO[] units = new UnitVO[unitNodes.Count];
             for (int i = 0; i < units.Length; i++)
             {
                 var attr = unitNodes[i] as XmlElement;
                 var x = attr.GetAttribute("x");
                 var y = attr.GetAttribute("y");
 
-                AUnitVO unitVO = new AUnitVO();
+                UnitVO unitVO = new UnitVO();
                 unitVO.x = ushort.Parse(x);
                 unitVO.y = ushort.Parse(y);
                 unitVO.type = unitType;
@@ -70,7 +71,7 @@ namespace Sokoban
             return units;
         }
 
-        AUnitVO GetUnitVO(ushort x, ushort y)
+        UnitVO GetUnitVO(ushort x, ushort y)
         {
             string flag = GetPosFlag(x, y);
             if(_unitDic.ContainsKey(flag))

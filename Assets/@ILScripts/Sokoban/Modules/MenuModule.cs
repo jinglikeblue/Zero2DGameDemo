@@ -21,5 +21,11 @@ namespace IL
         {
             UIPanelMgr.Ins.Switch<MenuPanel>();            
         }
+
+        public void EnterLevel(int level)
+        {
+            Global.Ins.lv = new LevelModel(level);
+            UIPanelMgr.Ins.Switch<GamePanel>();
+        }
     }
 }

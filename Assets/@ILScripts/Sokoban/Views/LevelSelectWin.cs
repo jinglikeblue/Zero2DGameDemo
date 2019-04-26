@@ -63,7 +63,7 @@ namespace IL
 
             private void SelectLevel()
             {
-                Log.I("选择的关卡:{0}", _level);
+                Global.Ins.menu.EnterLevel(_level);
             }
         }
     }

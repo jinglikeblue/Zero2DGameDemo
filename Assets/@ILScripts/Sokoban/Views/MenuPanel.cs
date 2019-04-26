@@ -36,7 +36,7 @@ namespace IL
 
         private void Start()
         {
-            UIPanelMgr.Ins.Switch<GamePanel>();            
+            Global.Ins.menu.EnterLevel(1);                   
         }
 
         private void SelectLevel()
