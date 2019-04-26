@@ -7,13 +7,13 @@ namespace IL
     /// <summary>
     /// 箱子
     /// </summary>
-    class Box : BaseUnit
+    class BoxUnit : BaseUnit
     {
-        enum EState
-        {
-            IDLE,
-            MOVE
-        }
+        //enum EState
+        //{
+        //    IDLE,
+        //    MOVE
+        //}
 
         //FiniteStateMachine<EState> _fsm = new FiniteStateMachine<EState>();
 

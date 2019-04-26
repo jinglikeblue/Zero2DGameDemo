@@ -11,6 +11,8 @@ namespace IL
         LevelModel _lv;
         Transform _contents;
         List<BaseUnit> _unitList;
+        public RoleUnit RoleUnit { get; private set; }
+
         protected override void OnInit()
         {
             _contents = GetChild("Contents");
@@ -62,7 +64,7 @@ namespace IL
             var prefab = ResMgr.Ins.Load<GameObject>("prefabs/game/Target");
             foreach (var vo in _lv.targets)
             {
-                var unit = ViewFactory.Create<BaseUnit>(prefab, _contents);
+                var unit = ViewFactory.Create<BaseUnit>(prefab, _contents, EUnitType.TARGET);
                 unit.SetTile(vo.x, vo.y);                
             }
         }
@@ -72,7 +74,7 @@ namespace IL
             var prefab = ResMgr.Ins.Load<GameObject>("prefabs/game/Block");
             foreach (var vo in _lv.blocks)
             {
-                var unit = ViewFactory.Create<BaseUnit>(prefab, _contents);
+                var unit = ViewFactory.Create<BaseUnit>(prefab, _contents, EUnitType.BLOCK);
                 unit.SetTile(vo.x, vo.y);
                 _unitList.Add(unit);
             }
@@ -83,7 +85,7 @@ namespace IL
             var prefab = ResMgr.Ins.Load<GameObject>("prefabs/game/Box");
             foreach (var vo in _lv.boxes)
             {
-                var unit = ViewFactory.Create<Box>(prefab, _contents);
+                var unit = ViewFactory.Create<BoxUnit>(prefab, _contents, EUnitType.BOX);
                 unit.SetTile(vo.x, vo.y);
                 _unitList.Add(unit);
             }
@@ -94,9 +96,10 @@ namespace IL
             var prefab = ResMgr.Ins.Load<GameObject>("prefabs/game/Role");
             foreach (var vo in _lv.roles)
             {
-                var unit = ViewFactory.Create<BaseUnit>(prefab, _contents);
+                var unit = ViewFactory.Create<RoleUnit>(prefab, _contents, EUnitType.ROLE);
                 unit.SetTile(vo.x, vo.y);
                 _unitList.Add(unit);
+                RoleUnit = unit;
             }
         }
 

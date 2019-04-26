@@ -72,11 +72,14 @@ namespace IL
             }
 
             Log.CI(Log.COLOR_YELLOW, "移动方向:{0}", newDir);
+            _stage.RoleUnit.Move(newDir);
         }
 
         private void OnClickReback()
         {
-            
+            MsgWin.Show("重置关卡？", true, () => {
+                UIPanelMgr.Ins.Switch<GamePanel>();
+            });
         }
 
         private void OnClickBack()

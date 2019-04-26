@@ -20,6 +20,8 @@ namespace IL
             Init18N();
             RegistViews();            
             Global.Ins.menu.ShowMenu();
+
+            AudioPlayer.Ins.PlayBGM(ResMgr.Ins.Load<AudioClip>("audios/bgm"));
         }
 
         static void Init18N()

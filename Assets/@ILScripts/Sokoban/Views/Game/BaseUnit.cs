@@ -18,7 +18,7 @@ namespace IL
         /// <summary>
         /// 所在格子
         /// </summary>
-        public Vector2Int Tile { get; private set; }
+        public Vector2Int Tile { get; protected set; }
 
         /// <summary>
         /// 渲染图片
@@ -28,6 +28,11 @@ namespace IL
         protected override void OnInit()
         {
             _sr = GetChildComponent<SpriteRenderer>(0);
+        }
+
+        protected override void OnData(object data)
+        {
+            UnitType = (EUnitType)data;
         }
 
         /// <summary>
