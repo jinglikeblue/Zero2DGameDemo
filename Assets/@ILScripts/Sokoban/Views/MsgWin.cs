@@ -50,14 +50,14 @@ namespace IL
 
         private void OK()
         {
-            Close();
             _onOK?.Invoke();
+            Close();            
         }
 
         private void Cancel()
         {
-            Close();
             _onCancel?.Invoke();
+            Close();            
         }
 
         void Close()

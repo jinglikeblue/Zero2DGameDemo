@@ -1,4 +1,5 @@
-﻿using Jing.Data;
+﻿using GameKit;
+using Jing.Data;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,8 +32,7 @@ namespace Sokoban
         [SerializeField]
         CanvasGroup _uiCG;
 
-        [Header("摇杆")]
-        [SerializeField]
+        [Header("摇杆")]        
         Joystick _stick;
 
         [Header("分享按钮")]
@@ -67,7 +67,7 @@ namespace Sokoban
             CreateRole();
 
             _stick.camera = DC.ins.mainCamera;
-            _stick.onStickValueChange += OnStickValueChange;
+            //_stick.onStickValueChange += OnStickValueChange;
             _role.checkMoveEnableHandler += CheckMoveEnableHandler;
 
             DC.ins.save.LastLevel = _lv.id;

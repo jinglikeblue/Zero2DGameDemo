@@ -43,7 +43,7 @@ namespace IL
             if (null == _layer)
             {
                 _layer = new SingularViewLayer(root.gameObject);
-                _layer.RegistSwitchAnimator(new Animator());
+                //_layer.RegistSwitchAnimator(new Animator());
             }
         }
 

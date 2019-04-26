@@ -1,20 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Sokoban
+namespace GameKit
 {
-    public class Joystick : MonoBehaviour {
+    public class Joystick : MonoBehaviour
+    {
 
-        /// <summary>
-        /// Stick值改变的委托
-        /// </summary>
-        /// <param name="value"></param>
-        public delegate void OnStickValueChangeHandler(Vector2 value);
-
-        [Header("摇杆最大半径")]
+        [Header("摇杆最大半径(UGUI)")]
         public float maxRadius = 0;
-        [Header("摇杆最小半径")]
+        [Header("摇杆最小半径(UGUI)")]
         public float minRadius = 0;
         [Header("摇杆框")]
         public Transform stickBorder;
@@ -24,16 +20,13 @@ namespace Sokoban
         /// <summary>
         /// 绑定的相机
         /// </summary>
-        [HideInInspector]        
+        [HideInInspector]
         public Camera camera;
-
-
-        Vector3 _stickPos;
 
         /// <summary>
         /// 触摸的起始位置
         /// </summary>
-        Vector3 _touchStartPos;
+        Vector2 _touchStartPos;
 
         /// <summary>
         /// 摇杆起始位置
@@ -43,7 +36,7 @@ namespace Sokoban
         /// <summary>
         /// 当Stick的值改变时触发
         /// </summary>
-        public OnStickValueChangeHandler onStickValueChange;
+        public event Action<Vector2> onValueChange;
 
         List<KeyCode> _pressedKeyCode = new List<KeyCode>();
 
@@ -56,7 +49,8 @@ namespace Sokoban
             camera = Camera.main;
         }
 
-        void Start() {
+        void Start()
+        {
             _stickBorderInitPos = stickBorder.position;
         }
 
@@ -78,13 +72,8 @@ namespace Sokoban
                 CheckKeyRelease(KeyCode.LeftArrow);
                 CheckKeyRelease(KeyCode.RightArrow);
 
-                Vector2? tempValue = null;
-                if (_pressedKeyCode.Count == 0)
-                {
-                    tempValue = Vector2.zero;
-
-                }
-                else
+                Vector2 tempValue = Vector2.zero;
+                if (_pressedKeyCode.Count > 0)
                 {
                     switch (_pressedKeyCode[0])
                     {
@@ -103,12 +92,16 @@ namespace Sokoban
                     }
                 }
 
+                SetValue(tempValue);
+            }
+        }
 
-                if (_lastValue != tempValue)
-                {
-                    _lastValue = (Vector2)tempValue;
-                    onStickValueChange?.Invoke(_lastValue);
-                }
+        void SetValue(Vector2 value)
+        {
+            if (_lastValue != value)
+            {
+                _lastValue = value;
+                onValueChange?.Invoke(_lastValue);
             }
         }
 
@@ -128,65 +121,78 @@ namespace Sokoban
                 _pressedKeyCode.Remove(keyCode);
             }
         }
-        
-        
+
+        /// <summary>
+        /// 得到指定GameObject下，鼠标相对的localposition坐标
+        /// </summary>
+        /// <param name="go"></param>
+        /// <returns></returns>
+        Vector2 GetLocalMousePosition(GameObject go)
+        {
+            Vector2 screenMouse = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            Vector2 localPoint;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(go.GetComponent<RectTransform>(), screenMouse, camera, out localPoint);
+
+            //Debug.LogFormat("Mouse:{0}  Screen:{1}  LocalPoint:{2}", Input.mousePosition, screenMouse, localPoint);
+            return localPoint;
+        }
+
+        /// <summary>
+        /// 触摸开始的时候
+        /// </summary>
+        /// <param name="e"></param>
         public void OnPointerDown(BaseEventData e)
-        {                                            
-            var pos = camera.ScreenToWorldPoint(Input.mousePosition);
-            pos.z = 0;
-            stickBorder.position = pos;
-            pos = stickBorder.localPosition;
-            pos.z = 0;
-            stickBorder.localPosition = pos;
+        {
+            stickBorder.localPosition = GetLocalMousePosition(gameObject);
 
             stickBorder.GetComponent<CanvasGroup>().alpha = 0.4f;
         }
 
+        /// <summary>
+        /// 滑动开始的时候
+        /// </summary>
+        /// <param name="e"></param>
         public void OnBeginDrag(BaseEventData e)
         {
-            _stickPos = stick.position;
-            _stickPos.z = 0;
-
             _isStickMode = true;
-            _touchStartPos = camera.ScreenToWorldPoint(Input.mousePosition);
-            _touchStartPos.z = 0;
+
+            _touchStartPos = GetLocalMousePosition(stickBorder.gameObject);
         }
 
+        /// <summary>
+        /// 滑动中
+        /// </summary>
+        /// <param name="e"></param>
         public void OnDrag(BaseEventData e)
         {
-            Vector3 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0;
+            Vector2 touchNowPos = GetLocalMousePosition(stickBorder.gameObject);
 
-            var moveVector = (mousePos - _touchStartPos);
-            Debug.LogFormat("start:{0}   mouse:{1}    moved:{2}", _touchStartPos, Input.mousePosition, moveVector);
+            var moveVector = (touchNowPos - _touchStartPos);
+            //Debug.LogFormat("start:{0}   mouse:{1}    moved:{2}", _touchStartPos, Input.mousePosition, moveVector);
             if (moveVector.magnitude > maxRadius)
             {
                 var k = moveVector.magnitude / maxRadius;
                 moveVector /= k;
             }
-            stick.position = _stickPos + moveVector * 100;
+            stick.localPosition = moveVector;
 
-            Vector2? value;
-            if (moveVector.magnitude < minRadius)
-            {
-                value = Vector2.zero;
-            }
-            else
+            Vector2 value = Vector2.zero;
+            if (moveVector.magnitude >= minRadius)
             {
                 value = new Vector2(moveVector.x, moveVector.y);
             }
 
-            if (_lastValue != value)
-            {
-                _lastValue = (Vector2)value;
-                onStickValueChange?.Invoke(_lastValue);
-            }
+            SetValue(value);
         }
 
+        /// <summary>
+        /// 滑动结束的时候
+        /// </summary>
+        /// <param name="e"></param>
         public void OnEndDrag(BaseEventData e)
         {
             stick.localPosition = Vector3.zero;
-            onStickValueChange?.Invoke(Vector2.zero);
+            onValueChange?.Invoke(Vector2.zero);
             _isStickMode = false;
 
             ResetStickBorder();
