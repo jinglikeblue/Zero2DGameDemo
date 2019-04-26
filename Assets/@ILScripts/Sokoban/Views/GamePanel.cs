@@ -12,13 +12,15 @@ namespace IL
         Button _btnBack;
         Button _btnReback;
         Joystick _js;
+        GameStage _stage;
 
         protected override void OnInit()
         {
-            StageMgr.Ins.Switch<GameStage>();
+            _stage = StageMgr.Ins.Switch<GameStage>();
             _btnBack = GetChildComponent<Button>("BtnBack");
             _btnReback = GetChildComponent<Button>("BtnReback");
             _js = GetChildComponent<Joystick>("Joystick");
+            _js.camera = GameObject.Find("UICamera").GetComponent<Camera>();
         }
 
         protected override void OnDestroy()

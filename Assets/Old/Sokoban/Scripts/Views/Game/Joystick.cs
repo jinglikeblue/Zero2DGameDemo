@@ -46,7 +46,7 @@ namespace GameKit
 
         private void Awake()
         {
-            camera = Camera.main;
+            
         }
 
         void Start()
@@ -129,6 +129,11 @@ namespace GameKit
         /// <returns></returns>
         Vector2 GetLocalMousePosition(GameObject go)
         {
+            if(null == camera)
+            {
+                throw new Exception("Joystick need binding a camera");
+            }
+
             Vector2 screenMouse = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             Vector2 localPoint;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(go.GetComponent<RectTransform>(), screenMouse, camera, out localPoint);

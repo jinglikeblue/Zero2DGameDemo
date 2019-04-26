@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 212153733068133594}
   - component: {fileID: 95364302809534386}
   m_Layer: 0
-  m_Name: RoleAnimator
+  m_Name: Img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
