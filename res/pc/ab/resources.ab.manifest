@@ -1,18 +1,49 @@
 ManifestFileVersion: 0
-CRC: 2969222720
+CRC: 2887868254
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 620e0d58d885715694b705075244652e
+    Hash: 3dc7f552f19b67c0bce6e57951b70ef1
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 0610827dbb246dabab1b627d42af5c85
+    Hash: 6e2493fc48dcc15712dc7484aa153bf7
 HashAppended: 0
 ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: 16995157, guid: a811bde74b26b53498b4f6d872b09b6d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 153e890cd4694a044a76dda0b45eb582, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bc5fa48df979f21409ed181ea3839f5b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c3673e4fe89a7b04db095fe4ff67d5e9, type: 3}
 - Class: 115
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
   Script: {instanceID: 0}
 Assets:
 - Assets/Resources/DOTweenSettings.asset
+- Assets/Resources/ILContent.prefab
 Dependencies: []

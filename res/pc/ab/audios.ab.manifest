@@ -3,7 +3,7 @@ CRC: 727147347
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6a9fb4fe02e7e649b758fd6ecce4952a
+    Hash: 68b7789849574dfec3854920bce4c050
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
@@ -12,7 +12,7 @@ ClassTypes:
 - Class: 83
   Script: {instanceID: 0}
 Assets:
-- Assets/Resources/Audios/push.mp3
-- Assets/Resources/Audios/boot.mp3
-- Assets/Resources/Audios/bgm.mp3
+- Assets/Resources/audios/push.mp3
+- Assets/Resources/audios/boot.mp3
+- Assets/Resources/audios/bgm.mp3
 Dependencies: []

@@ -1,17 +1,19 @@
 ManifestFileVersion: 0
-CRC: 4214646826
+CRC: 1700354070
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c7413c17003513ad806e63022b18ec18
+    Hash: a26a4430613b56e21da4d34924f2e675
   TypeTreeHash:
     serializedVersion: 2
-    Hash: b2f59fc3b362b553fad5800d338cd35a
+    Hash: 608c96bdf4fb3abcbe486d686bd0a5f4
 HashAppended: 0
 ClassTypes:
 - Class: 1
   Script: {instanceID: 0}
 - Class: 4
+  Script: {instanceID: 0}
+- Class: 20
   Script: {instanceID: 0}
 - Class: 21
   Script: {instanceID: 0}
@@ -19,14 +21,34 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9297b3203e6e0924691a209eb9ecb80f, type: 3}
 - Class: 114
   Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
+  Script: {fileID: 1741964061, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
   Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -2095666955, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -405508275, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
+  Script: {fileID: -1200242548, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
   Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1367256648, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
@@ -34,24 +56,20 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1679637790, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 - Class: 114
-  Script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  Script: {fileID: 11500000, guid: 495844f459e80ed4f8d47bfd10bc8c9b, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 3d71ef3522b0c7c46a101c890b149153, type: 3}
+  Script: {fileID: 11500000, guid: 4a198f66a61a3654c9251ebb9fb072f2, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: fc8ea7c58cad31445a2f0c97a3d4d7f3, type: 3}
+  Script: {fileID: 11500000, guid: 064292871cc2f58409c69e748895cc82, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 15e38329187af0e4483cbdbbf3940ed9, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 51696ff9dd8caf240a7f16ec118c7bca, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 8782b9eb7e3aae84a9de358316089cdb, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 4e5fd3de6bfa96e4fa1f08c9a048a5f8, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 388d37df367978c4da65ecfb04fa2b24, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
+  Script: {instanceID: 0}
+- Class: 212
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
@@ -62,10 +80,11 @@ ClassTypes:
 - Class: 225
   Script: {instanceID: 0}
 Assets:
-- Assets/Resources/Prefabs/Native.prefab
-- Assets/Resources/Prefabs/ShareWin.prefab
-- Assets/Resources/Prefabs/BlueButton.prefab
-- Assets/Resources/Prefabs/MsgBox.prefab
-- Assets/Resources/Prefabs/YellowButton.prefab
-Dependencies:
-- G:/Projects/Zero2DGameDemo/./res/pc/ab/auto_depends/cross_0.ab
+- Assets/Resources/prefabs/LevelSelectWin.prefab
+- Assets/Resources/prefabs/GameStage.prefab
+- Assets/Resources/prefabs/MenuPanel.prefab
+- Assets/Resources/prefabs/LoadingWin.prefab
+- Assets/Resources/prefabs/GamePanel.prefab
+- Assets/Resources/prefabs/MsgWin.prefab
+- Assets/Resources/prefabs/CreditsWin.prefab
+Dependencies: []
