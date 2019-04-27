@@ -11,6 +11,11 @@ namespace IL
     class BaseUnit : AView
     {
         /// <summary>
+        /// 关联的图片
+        /// </summary>
+        protected SpriteRenderer Img { get; private set; }
+
+        /// <summary>
         /// 单位类型
         /// </summary>
         public EUnitType UnitType { get; private set; }
@@ -27,6 +32,7 @@ namespace IL
 
         protected override void OnInit()
         {
+            Img = GetChildComponent<SpriteRenderer>(0);
             _sr = GetChildComponent<SpriteRenderer>(0);
         }
 

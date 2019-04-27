@@ -7,13 +7,14 @@ namespace IL
     class RoleUnit : MoveableUnit
     {
         Animator _animator;
-        EDir _toward = EDir.DOWN;                
+        EDir _toward = EDir.DOWN;
+        AudioSource _as;
 
         protected override void OnInit()
         {
             base.OnInit();
             _animator = GetChildComponent<Animator>(0);
-
+            _as = GetComponent<AudioSource>();
             SetToward(_toward);
         }
 
@@ -35,11 +36,13 @@ namespace IL
         {
             SetToward(MoveDir);
             _animator.SetBool("Move", true);
+            _as.Play();
         }
 
         private void OnMoveEnd(MoveableUnit unit)
         {
             _animator.SetBool("Move", false);
+            _as.Stop();
         }
 
         /// <summary>

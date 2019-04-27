@@ -31,13 +31,13 @@ namespace IL
 
         protected override void OnEnable()
         {            
-            ILBridge.Ins.onUpdate += OnUpdate;
+            ILBridge.Ins.onUpdate += OnUpdate;            
         }
 
         protected override void OnDisable()
         {
-            ILBridge.Ins.onUpdate -= OnUpdate;
-        }
+            ILBridge.Ins.onUpdate -= OnUpdate;            
+        }        
 
         private void OnUpdate()
         {
@@ -156,10 +156,30 @@ namespace IL
                 return false;
             }
 
-
+            box.onMoveEnd += OnBoxMoveEnd;
             return box.Move(dir, endTile);
         }
 
+        private void OnBoxMoveEnd(MoveableUnit unit)
+        {
+            unit.onMoveEnd -= OnBoxMoveEnd;
+
+            if(IsTargetTile(unit.Tile))
+            {
+                (unit as BoxUnit).SetIsAtTarget(true);
+                //播放一个效果
+            }
+            else
+            {
+                (unit as BoxUnit).SetIsAtTarget(false);
+            }
+        }
+
+        /// <summary>
+        /// 得到格子上的单位
+        /// </summary>
+        /// <param name="tile"></param>
+        /// <returns></returns>
         BaseUnit GetUnitInTile(Vector2Int tile)
         {
             foreach(var unit in _unitList)
@@ -191,6 +211,23 @@ namespace IL
                     break;
             }
             return endTile;
+        }
+
+        /// <summary>
+        /// 是否是箱子的目标格子
+        /// </summary>
+        /// <param name="tile"></param>
+        /// <returns></returns>
+        bool IsTargetTile(Vector2Int tile)
+        {
+            foreach (var vo in _lv.targets)
+            {
+                if (vo.x == tile.x && vo.y == tile.y)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
