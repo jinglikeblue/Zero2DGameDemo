@@ -7,16 +7,14 @@ namespace IL
     class RoleUnit : MoveableUnit
     {
         Animator _animator;
-        EDir _dir = EDir.DOWN;        
-        EDir _moveDir = EDir.NONE;
+        EDir _toward = EDir.DOWN;                
 
         protected override void OnInit()
         {
             base.OnInit();
             _animator = GetChildComponent<Animator>(0);
 
-            SetDir(_dir);
-            OnMoveEnd();
+            SetToward(_toward);
         }
 
         protected override void OnEnable()
@@ -33,38 +31,40 @@ namespace IL
             onMoveEnd -= OnMoveEnd;
         }
 
-        private void OnMoveStart(EDir dir)
+        private void OnMoveStart(MoveableUnit unit)
         {
-            SetDir(dir);
+            SetToward(MoveDir);
             _animator.SetBool("Move", true);
         }
 
-        private void OnMoveEnd()
+        private void OnMoveEnd(MoveableUnit unit)
         {
-            if (_moveDir == EDir.NONE)
-            {
-                _animator.SetBool("Move", false); 
-            }
-            else
-            {
-                Move(_moveDir);
-            }           
+            _animator.SetBool("Move", false);
         }
 
-        public void SetDir(EDir dir)
+        /// <summary>
+        /// 设置朝向
+        /// </summary>
+        /// <param name="dir"></param>
+        public void SetToward(EDir dir)
         {
-            _dir = dir;
-            if (_dir != EDir.NONE)
+            _toward = dir;
+            if (_toward != EDir.NONE)
             {
-                _animator.SetInteger("Dir", (int)_dir);
+                _animator.SetInteger("Dir", (int)_toward);
             }
         }
 
-        public override void Move(EDir dir)
-        {
-            _moveDir = dir;
+        public override bool Move(EDir dir, Vector2Int targetTile)
+        {            
+            if(dir == EDir.NONE)
+            {
+                return false;
+            }
 
-            base.Move(dir);
+            SetToward(dir);
+
+            return base.Move(dir, targetTile);
         }
     }
 }

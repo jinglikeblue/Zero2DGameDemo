@@ -17,16 +17,17 @@ namespace IL
         public Vector2Int TileLastAt { get; private set; }
         public Vector2Int TileMoveTo { get; private set; }        
         public bool IsMoving { get; private set; }
-
+        public EDir MoveDir { get; private set; }
         /// <summary>
         /// 移动速度
         /// </summary>
-        float moveSpeed = 2f;
+        public float moveSpeed = 2f;
 
         Vector3 _targetLocalPosition;
 
-        public event Action onMoveEnd;
-        public event Action<EDir> onMoveStart;
+        public event Action<MoveableUnit> onMoveEnd;
+        public event Action<MoveableUnit> onMoveStart;
+        
 
         protected override void OnInit()
         {
@@ -41,12 +42,11 @@ namespace IL
             switch (_fsm.CurState)
             {
                 case EState.IDLE:
-                    IsMoving = false;
-                    onMoveEnd?.Invoke();
+                    IsMoving = false;                    
                     break;
                 case EState.MOVE:
                     IsMoving = true;
-                    onMoveStart?.Invoke((EDir)data);
+                    onMoveStart?.Invoke(this);
                     break;
             }
         }
@@ -56,14 +56,9 @@ namespace IL
             gameObject.transform.localPosition = Vector3.MoveTowards(gameObject.transform.localPosition, _targetLocalPosition, Time.deltaTime * moveSpeed);
             if (_targetLocalPosition == gameObject.transform.localPosition)
             {
-                Tile = TileMoveTo;
-                //bool lastIsOnTarget = _isOnTarget;
-                //OnTileChange();
-                //if (!lastIsOnTarget && _isOnTarget)
-                //{
-                //    GameObject.Instantiate(_bangEffPrefab, this.transform);
-                //}                
-                _fsm.SwitchState(EState.IDLE);                
+                Tile = TileMoveTo;             
+                _fsm.SwitchState(EState.IDLE);
+                onMoveEnd?.Invoke(this);
             }
         }
 
@@ -84,33 +79,22 @@ namespace IL
             _fsm.Update();
         }
 
-        public virtual void Move(EDir dir)
+        public virtual bool Move(EDir dir, Vector2Int targetTile)
         {
             if (IsMoving)
             {
-                return;
+                return false;
             }
 
             TileLastAt = Tile;
 
-            switch (dir)
-            {
-                case EDir.UP:
-                    TileMoveTo = Tile + Vector2Int.up;
-                    break;
-                case EDir.DOWN:
-                    TileMoveTo = Tile + Vector2Int.down;
-                    break;
-                case EDir.LEFT:
-                    TileMoveTo = Tile + Vector2Int.left;
-                    break;
-                case EDir.RIGHT:
-                    TileMoveTo = Tile + Vector2Int.right;
-                    break;
-            }
+            TileMoveTo = targetTile;
+
+            MoveDir = dir;
 
             _targetLocalPosition = TileUtil.Tile2Position(TileMoveTo);
-            _fsm.SwitchState(EState.MOVE, dir);
+            _fsm.SwitchState(EState.MOVE);
+            return true;
         } 
     }
 }

@@ -11,7 +11,7 @@ namespace IL
         LevelModel _lv;
         Transform _contents;
         List<BaseUnit> _unitList;
-        public RoleUnit RoleUnit { get; private set; }
+        RoleUnit _roleUnit;        
 
         protected override void OnInit()
         {
@@ -99,10 +99,98 @@ namespace IL
                 var unit = ViewFactory.Create<RoleUnit>(prefab, _contents, EUnitType.ROLE);
                 unit.SetTile(vo.x, vo.y);
                 _unitList.Add(unit);
-                RoleUnit = unit;
+                _roleUnit = unit;
             }
         }
 
-        
+        public bool MoveRole(EDir dir)
+        {
+            if(EDir.NONE == dir)
+            {
+                return false;
+            }
+
+            if(_roleUnit.IsMoving)
+            {
+                return false;
+            }
+
+            var endTile = GetTileMoveTo(_roleUnit.Tile, dir);
+
+            //检查目标位置是否有阻挡
+            var block = GetUnitInTile(endTile);
+            if(null != block)
+            {
+                if(EUnitType.BLOCK == block.UnitType)
+                {
+                    return false;
+                }
+
+                if(EUnitType.BOX == block.UnitType)
+                {
+                    //推动箱子
+                    var moveBoxSuccess = MoveBox(block as BoxUnit, dir);
+                    if(false == moveBoxSuccess)
+                    {
+                        //箱子推动失败
+                        return false;
+                    }
+                }
+            }
+
+            return _roleUnit.Move(dir, endTile);
+        }
+
+        bool MoveBox(BoxUnit box, EDir dir)
+        {
+            if(null == box)
+            {
+                return false;
+            }
+
+            var endTile = GetTileMoveTo(box.Tile, dir);
+            //检查目标位置是否有阻挡
+            var block = GetUnitInTile(endTile);
+            if (null != block && (EUnitType.BLOCK == block.UnitType || EUnitType.BOX == block.UnitType))
+            {
+                return false;
+            }
+
+
+            return box.Move(dir, endTile);
+        }
+
+        BaseUnit GetUnitInTile(Vector2Int tile)
+        {
+            foreach(var unit in _unitList)
+            {
+                if(unit.Tile == tile)
+                {
+                    return unit;
+                }
+            }
+            return null;
+        }
+
+        Vector2Int GetTileMoveTo(Vector2Int startTile, EDir dir)
+        {
+            Vector2Int endTile = startTile;
+            switch (dir)
+            {
+                case EDir.UP:
+                    endTile = startTile + Vector2Int.up;
+                    break;
+                case EDir.DOWN:
+                    endTile = startTile + Vector2Int.down;
+                    break;
+                case EDir.LEFT:
+                    endTile = startTile + Vector2Int.left;
+                    break;
+                case EDir.RIGHT:
+                    endTile = startTile + Vector2Int.right;
+                    break;
+            }
+            return endTile;
+        }
     }
 }

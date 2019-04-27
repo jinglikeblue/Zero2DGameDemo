@@ -115,8 +115,8 @@ namespace GameKit
         }
 
         void CheckKeyRelease(KeyCode keyCode)
-        {
-            if (Input.GetKeyUp(keyCode))
+        {            
+            if (false == Input.GetKey(keyCode))
             {
                 _pressedKeyCode.Remove(keyCode);
             }

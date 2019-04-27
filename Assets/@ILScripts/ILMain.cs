@@ -13,7 +13,7 @@ namespace IL
         {
             DOTween.defaultEaseType = Ease.Linear;
             DOTween.Init();
-            Application.targetFrameRate = 60;
+            Application.targetFrameRate = 30;            
             UIPanelMgr.Ins.Init(GameObject.Find("UIPanel").transform);
             StageMgr.Ins.Init(GameObject.Find("Stage").transform);
             UIWinMgr.Ins.Init(GameObject.Find("UIWin").transform);
@@ -22,6 +22,11 @@ namespace IL
             Global.Ins.menu.ShowMenu();
 
             AudioPlayer.Ins.PlayBGM(ResMgr.Ins.Load<AudioClip>("audios/bgm"));
+
+            if (Debug.isDebugBuild)
+            {
+                GUIDeviceInfo.Show();
+            }
         }
 
         static void Init18N()

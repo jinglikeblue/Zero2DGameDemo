@@ -72,7 +72,7 @@ namespace IL
             }
 
             Log.CI(Log.COLOR_YELLOW, "移动方向:{0}", newDir);
-            _stage.RoleUnit.Move(newDir);
+            _stage.MoveRole(newDir);
         }
 
         private void OnClickReback()
