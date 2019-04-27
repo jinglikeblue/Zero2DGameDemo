@@ -17,8 +17,7 @@ namespace IL
             Application.targetFrameRate = 30;            
             UIPanelMgr.Ins.Init(GameObject.Find("UIPanel").transform);
             StageMgr.Ins.Init(GameObject.Find("Stage").transform);
-            UIWinMgr.Ins.Init(GameObject.Find("UIWin").transform);
-            Init18N();
+            UIWinMgr.Ins.Init(GameObject.Find("UIWin").transform);         
             RegistViews();            
             Global.Ins.menu.ShowMenu();
 
@@ -28,14 +27,7 @@ namespace IL
             {
                 GUIDeviceInfo.Show();
             }
-        }
-
-        static void Init18N()
-        {
-            var cn = ResMgr.Ins.Load<TextAsset>("configs/i18n/CN");
-            CSVFile csv = new CSVFile(cn.bytes, Encoding.UTF8);            
-            Global.Ins.i18n.SetData(csv.Data);
-        }
+        }        
 
         static void RegistViews()
         {
