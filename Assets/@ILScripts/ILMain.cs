@@ -11,6 +11,7 @@ namespace IL
     {
         public static void Main()
         {
+            new ScreenChecker();
             DOTween.defaultEaseType = Ease.Linear;
             DOTween.Init();
             Application.targetFrameRate = 30;            

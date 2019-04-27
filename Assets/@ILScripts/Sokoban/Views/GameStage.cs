@@ -8,6 +8,7 @@ namespace IL
 {
     class GameStage : AView
     {
+        Camera _camera;
         LevelModel _lv;
         Transform _contents;
         List<BaseUnit> _unitList;
@@ -17,7 +18,8 @@ namespace IL
         protected override void OnInit()
         {
             _contents = GetChild("Contents");
-
+            _camera = GetChildComponent<Camera>("Camera");
+            
             float off = Define.MAP_TILE_COUNT_OF_SIDE * Define.TILE_SIZE / -2f;
             _contents.localPosition = new Vector2(off, off);
 
@@ -28,18 +30,38 @@ namespace IL
             CreateBlocks();
             CreateBoxes();
             CreateRole();
+
+            AdjustmentCamera();
         }
 
         protected override void OnEnable()
         {            
             ILBridge.Ins.onUpdate += OnUpdate;
             _roleUnit.onMoveEnd += OnRoleMoveEnd;
+            GameEvent.Ins.onScreenSizeChange += AdjustmentCamera;
         }
 
         protected override void OnDisable()
         {
             ILBridge.Ins.onUpdate -= OnUpdate;
             _roleUnit.onMoveEnd -= OnRoleMoveEnd;
+            GameEvent.Ins.onScreenSizeChange -= AdjustmentCamera;
+        }
+
+        /// <summary>
+        /// 根据屏幕尺寸计算合适的相机大小
+        /// </summary>
+        private void AdjustmentCamera()
+        {
+            //如果不是竖屏则不用处理
+            if(Screen.height <= Screen.width)
+            {
+                return;
+            }
+
+            float size = (float)Screen.height / Screen.width * 3.6f;
+            _camera.orthographicSize = size;
+
         }
 
         private void OnRoleMoveEnd(MoveableUnit obj)
