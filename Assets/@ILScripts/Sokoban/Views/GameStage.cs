@@ -14,6 +14,10 @@ namespace IL
         List<BaseUnit> _unitList;
         RoleUnit _roleUnit;
         EDir _lastMove;
+        /// <summary>
+        /// 操作记录
+        /// </summary>
+        Stack<RecordVO> _recordStack = new Stack<RecordVO>();
 
         protected override void OnInit()
         {
@@ -56,10 +60,11 @@ namespace IL
             //如果不是竖屏则不用处理
             if(Screen.height <= Screen.width)
             {
+                _camera.orthographicSize = 4.4f;
                 return;
             }
 
-            float size = (float)Screen.height / Screen.width * 3.6f;
+            float size = (float)Screen.height / Screen.width * 4.4f;
             _camera.orthographicSize = size;
 
         }
@@ -188,6 +193,7 @@ namespace IL
                 return false;
             }
 
+            _recordStack.Push(new RecordVO(_roleUnit.Tile, box.Tile, dir, _unitList.IndexOf(box)));
             box.onMoveEnd += OnBoxMoveEnd;
             return box.Move(dir, endTile);
         }
@@ -225,7 +231,7 @@ namespace IL
             MsgWin.Show("Congratulations!", false, () => {
                 //通知关卡完成
                 GameEvent.Ins.onLevelComplete?.Invoke();
-            });            
+            }).SetLabel("Continue");            
         }
 
         /// <summary>
@@ -266,21 +272,26 @@ namespace IL
             return endTile;
         }
 
-        /// <summary>
-        /// 是否是箱子的目标格子
-        /// </summary>
-        /// <param name="tile"></param>
-        /// <returns></returns>
-        //bool IsTargetTile(Vector2Int tile)
-        //{
-        //    foreach (var vo in _lv.targets)
-        //    {
-        //        if (vo.x == tile.x && vo.y == tile.y)
-        //        {
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
+        public void Revoke()
+        {
+            if (_recordStack.Count > 0)
+            {
+                var vo = _recordStack.Pop();
+                _roleUnit.SetTile((ushort)vo.roleTile.x, (ushort)vo.roleTile.y);
+                _roleUnit.SetToward(vo.dir);
+                var box = _unitList[vo.boxIdx];
+                box.SetTile((ushort)vo.boxTile.x, (ushort)vo.boxTile.y);
+
+
+                if (_lv.IsTarget((ushort)box.Tile.x, (ushort)box.Tile.y))
+                {
+                    (box as BoxUnit).SetIsAtTarget(true);
+                }
+                else
+                {
+                    (box as BoxUnit).SetIsAtTarget(false);
+                }
+            }
+        }
     }
 }

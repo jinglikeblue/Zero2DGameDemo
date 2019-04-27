@@ -1,6 +1,7 @@
 ﻿using GameKit;
 using IL.Zero;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Zero;
@@ -82,9 +83,7 @@ namespace IL
 
         private void OnClickReback()
         {
-            MsgWin.Show("Reset？", true, () => {
-                Global.Ins.menu.EnterLevel(Global.Ins.lv.id);
-            });
+            _stage.Revoke();
         }
 
         private void OnClickBack()
