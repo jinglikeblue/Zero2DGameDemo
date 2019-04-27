@@ -11,7 +11,8 @@ namespace IL
         LevelModel _lv;
         Transform _contents;
         List<BaseUnit> _unitList;
-        RoleUnit _roleUnit;        
+        RoleUnit _roleUnit;
+        EDir _lastMove;
 
         protected override void OnInit()
         {
@@ -31,13 +32,20 @@ namespace IL
 
         protected override void OnEnable()
         {            
-            ILBridge.Ins.onUpdate += OnUpdate;            
+            ILBridge.Ins.onUpdate += OnUpdate;
+            _roleUnit.onMoveEnd += OnRoleMoveEnd;
         }
 
         protected override void OnDisable()
         {
-            ILBridge.Ins.onUpdate -= OnUpdate;            
-        }        
+            ILBridge.Ins.onUpdate -= OnUpdate;
+            _roleUnit.onMoveEnd -= OnRoleMoveEnd;
+        }
+
+        private void OnRoleMoveEnd(MoveableUnit obj)
+        {
+            MoveRole(_lastMove);
+        }
 
         private void OnUpdate()
         {
@@ -105,7 +113,9 @@ namespace IL
 
         public bool MoveRole(EDir dir)
         {
-            if(EDir.NONE == dir)
+            _lastMove = dir;
+
+            if (EDir.NONE == dir)
             {
                 return false;
             }

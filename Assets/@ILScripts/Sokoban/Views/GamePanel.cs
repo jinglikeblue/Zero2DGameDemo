@@ -82,14 +82,14 @@ namespace IL
 
         private void OnClickReback()
         {
-            MsgWin.Show("重置关卡？", true, () => {
+            MsgWin.Show("Reset？", true, () => {
                 Global.Ins.menu.EnterLevel(Global.Ins.lv.id);
             });
         }
 
         private void OnClickBack()
         {
-            MsgWin.Show("退出关卡？", true, () => {
+            MsgWin.Show("Exit？", true, () => {
                 Global.Ins.menu.ShowMenu(true);                
             });
         }
