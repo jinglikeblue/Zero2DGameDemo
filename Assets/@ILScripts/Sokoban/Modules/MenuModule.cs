@@ -1,4 +1,5 @@
-﻿using IL.Zero;
+﻿using System;
+using IL.Zero;
 
 namespace IL
 {
@@ -9,7 +10,19 @@ namespace IL
     {
         public MenuModule()
         {
-            
+            GameEvent.Ins.onLevelComplete += OnLevelComplete;
+        }
+
+        private void OnLevelComplete()
+        {
+            if (Global.Ins.lv.id == Define.LEVEL_AMOUNT)
+            {
+                EnterLevel(1);
+            }
+            else
+            {
+                EnterLevel(Global.Ins.lv.id + 1);
+            }
         }
 
         protected override void Dispose()
@@ -17,16 +30,30 @@ namespace IL
             
         }
 
-        public void ShowMenu()
+        public void ShowMenu(bool isTween = false)
         {
-            UIPanelMgr.Ins.Switch<MenuPanel>();            
+            if (isTween)
+            {
+                var loading = UIWinMgr.Ins.Open<LoadingWin>();
+                loading.onSwitch += () =>
+                {                    
+                    UIPanelMgr.Ins.Switch<MenuPanel>();
+                };
+            }
+            else
+            {                
+                UIPanelMgr.Ins.Switch<MenuPanel>();
+            }
         }
 
         public void EnterLevel(int level)
         {
-            UIWinMgr.Ins.CloseAll();
             Global.Ins.lv = new LevelModel(level);
-            UIPanelMgr.Ins.Switch<GamePanel>();
+            var loading = UIWinMgr.Ins.Open<LoadingWin>();
+            loading.onSwitch += () =>
+            {                
+                UIPanelMgr.Ins.Switch<GamePanel>();
+            };                       
         }
     }
 }

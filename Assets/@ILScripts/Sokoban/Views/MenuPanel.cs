@@ -18,6 +18,7 @@ namespace IL
             _btnStart = GetChildComponent<Button>("StartupMenu/BtnStart");
             _btnSelectLevel = GetChildComponent<Button>("StartupMenu/BtnSelectLevel");
             _btnCredits = GetChildComponent<Button>("StartupMenu/BtnCredits");
+            StageMgr.Ins.Clear();
         }
 
         protected override void OnEnable()

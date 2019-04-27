@@ -25,7 +25,7 @@ namespace IL
 
         protected override void OnDestroy()
         {
-            StageMgr.Ins.Clear();
+            
         }
 
         protected override void OnEnable()
@@ -33,6 +33,11 @@ namespace IL
             _btnBack.onClick.AddListener(OnClickBack);
             _btnReback.onClick.AddListener(OnClickReback);
             _js.onValueChange += OnValueChange;
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
         }
 
         private void OnValueChange(Vector2 value)
@@ -78,14 +83,14 @@ namespace IL
         private void OnClickReback()
         {
             MsgWin.Show("重置关卡？", true, () => {
-                UIPanelMgr.Ins.Switch<GamePanel>();
+                Global.Ins.menu.EnterLevel(Global.Ins.lv.id);
             });
         }
 
         private void OnClickBack()
         {
             MsgWin.Show("退出关卡？", true, () => {
-                UIPanelMgr.Ins.Switch<MenuPanel>(); 
+                Global.Ins.menu.ShowMenu(true);                
             });
         }
     }

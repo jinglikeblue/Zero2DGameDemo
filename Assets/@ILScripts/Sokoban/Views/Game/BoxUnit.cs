@@ -11,9 +11,8 @@ namespace IL
     class BoxUnit : MoveableUnit
     {
         public void SetIsAtTarget(bool isAtTarget)
-        {
-            
-            Object[] sprites = GetChildComponent<ObjectBindingData>(0).Find("BoxState");
+        {            
+            Object[] sprites = GetComponent<ObjectBindingData>().Find("BoxState");
             if (isAtTarget)
             {
                 Img.sprite = sprites[1] as Sprite;
@@ -23,7 +22,5 @@ namespace IL
                 Img.sprite = sprites[0] as Sprite;
             }
         }
-
-
     }
 }

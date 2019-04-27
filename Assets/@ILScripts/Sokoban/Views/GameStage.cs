@@ -164,15 +164,36 @@ namespace IL
         {
             unit.onMoveEnd -= OnBoxMoveEnd;
 
-            if(IsTargetTile(unit.Tile))
+            if(_lv.IsTarget((ushort)unit.Tile.x, (ushort)unit.Tile.y))
             {
                 (unit as BoxUnit).SetIsAtTarget(true);
                 //播放一个效果
+                ViewFactory.Create<BangEffect>("prefabs/game", "BangEffect", unit.gameObject.transform);
+                CheckLevelComplete();
             }
             else
             {
                 (unit as BoxUnit).SetIsAtTarget(false);
             }
+        }
+
+        void CheckLevelComplete()
+        {
+            foreach (var unit in _unitList)
+            {
+                if (unit.UnitType == EUnitType.BOX)
+                {
+                    if (false == _lv.IsTarget((ushort)unit.Tile.x, (ushort)unit.Tile.y))
+                    {
+                        return;
+                    }
+                }
+            }
+
+            MsgWin.Show("Congratulations!", false, () => {
+                //通知关卡完成
+                GameEvent.Ins.onLevelComplete?.Invoke();
+            });            
         }
 
         /// <summary>
@@ -218,16 +239,16 @@ namespace IL
         /// </summary>
         /// <param name="tile"></param>
         /// <returns></returns>
-        bool IsTargetTile(Vector2Int tile)
-        {
-            foreach (var vo in _lv.targets)
-            {
-                if (vo.x == tile.x && vo.y == tile.y)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+        //bool IsTargetTile(Vector2Int tile)
+        //{
+        //    foreach (var vo in _lv.targets)
+        //    {
+        //        if (vo.x == tile.x && vo.y == tile.y)
+        //        {
+        //            return true;
+        //        }
+        //    }
+        //    return false;
+        //}
     }
 }
