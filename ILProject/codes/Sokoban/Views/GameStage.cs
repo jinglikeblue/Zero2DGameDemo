@@ -96,7 +96,7 @@ namespace IL
 
         private void CreateTargets()
         {
-            var prefab = ResMgr.Ins.Load<GameObject>("prefabs/game/Target");
+            var prefab = ResMgr.Ins.Load<GameObject>("hot_res/prefabs/game/Target");
             foreach (var vo in _lv.targets)
             {
                 var unit = ViewFactory.Create<BaseUnit>(prefab, _contents, EUnitType.TARGET);
@@ -106,7 +106,7 @@ namespace IL
 
         private void CreateBlocks()
         {
-            var prefab = ResMgr.Ins.Load<GameObject>("prefabs/game/Block");
+            var prefab = ResMgr.Ins.Load<GameObject>("hot_res/prefabs/game/Block");
             foreach (var vo in _lv.blocks)
             {
                 var unit = ViewFactory.Create<BaseUnit>(prefab, _contents, EUnitType.BLOCK);
@@ -117,7 +117,7 @@ namespace IL
 
         private void CreateBoxes()
         {
-            var prefab = ResMgr.Ins.Load<GameObject>("prefabs/game/Box");
+            var prefab = ResMgr.Ins.Load<GameObject>("hot_res/prefabs/game/Box");
             foreach (var vo in _lv.boxes)
             {
                 var unit = ViewFactory.Create<BoxUnit>(prefab, _contents, EUnitType.BOX);
@@ -128,7 +128,7 @@ namespace IL
 
         private void CreateRole()
         {
-            var prefab = ResMgr.Ins.Load<GameObject>("prefabs/game/Role");
+            var prefab = ResMgr.Ins.Load<GameObject>("hot_res/prefabs/game/Role");
             foreach (var vo in _lv.roles)
             {
                 var unit = ViewFactory.Create<RoleUnit>(prefab, _contents, EUnitType.ROLE);
@@ -231,7 +231,7 @@ namespace IL
             MsgWin.Show("Congratulations!", false, () => {
                 //通知关卡完成
                 GameEvent.Ins.onLevelComplete?.Invoke();
-            }).SetLabel("Continue");            
+            }).SetLabel("Next");            
         }
 
         /// <summary>

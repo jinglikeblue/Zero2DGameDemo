@@ -21,7 +21,7 @@ namespace IL
             RegistViews();            
             Global.Ins.menu.ShowMenu();
 
-            AudioPlayer.Ins.PlayBGM(ResMgr.Ins.Load<AudioClip>("audios/bgm"));
+            AudioPlayer.Ins.PlayBGM(ResMgr.Ins.Load<AudioClip>("hot_res/audios/bgm"));
 
             if (Debug.isDebugBuild)
             {

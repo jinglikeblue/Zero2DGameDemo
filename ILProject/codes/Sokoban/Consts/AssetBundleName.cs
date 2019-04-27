@@ -7,6 +7,6 @@ namespace IL
 {
     class AssetBundleName
     {
-        public static string PREFABS = "prefabs";
+        public static string PREFABS = "hot_res/prefabs";
     }
 }

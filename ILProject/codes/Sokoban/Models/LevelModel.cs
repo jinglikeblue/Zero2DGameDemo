@@ -39,7 +39,7 @@ namespace IL
         public LevelModel(int levelId)
         {
             id = levelId;            
-            TextAsset data = ResMgr.Ins.Load<TextAsset>("configs/levels/level" + levelId);
+            TextAsset data = ResMgr.Ins.Load<TextAsset>("hot_res/configs/levels/level" + levelId);
             var xml = new XmlDocument();
             xml.LoadXml(data.text);
             _xml = xml;
