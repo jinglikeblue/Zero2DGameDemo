@@ -1,5 +1,7 @@
 <linker>
     <assembly fullname="Assembly-CSharp" preserve="all" />
+    <assembly fullname="DOTween" preserve="all" />
+    <assembly fullname="DOTweenEditor" preserve="all" />
     <assembly fullname="UnityEngine.AccessibilityModule" preserve="all" />
     <assembly fullname="UnityEngine.AIModule" preserve="all" />
     <assembly fullname="UnityEngine.AnimationModule" preserve="all" />

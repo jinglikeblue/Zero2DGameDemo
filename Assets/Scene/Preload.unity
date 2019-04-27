@@ -397,7 +397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runtimeCfg:
     isLogEnable: 1
-    mainPrefab: ILContent
+    mainPrefab: hot_res/ILContent
     isHotResProject: 1
     hotResMode: 0
     netRoot: http://wepieces.cn/unity/zero/2d_game_demo/res
