@@ -206,7 +206,7 @@ namespace IL
             {
                 (unit as BoxUnit).SetIsAtTarget(true);
                 //播放一个效果
-                ViewFactory.Create<BangEffect>("prefabs/game", "BangEffect", unit.gameObject.transform);
+                ViewFactory.Create<BangEffect>("hot_res/prefabs/game", "BangEffect", unit.gameObject.transform);
                 CheckLevelComplete();
             }
             else

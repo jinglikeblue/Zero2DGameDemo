@@ -14,7 +14,7 @@ namespace IL
             new ScreenChecker();
             DOTween.defaultEaseType = Ease.Linear;
             DOTween.Init();
-            Application.targetFrameRate = 30;            
+            Application.targetFrameRate = 60;            
             UIPanelMgr.Ins.Init(GameObject.Find("UIPanel").transform);
             StageMgr.Ins.Init(GameObject.Find("Stage").transform);
             UIWinMgr.Ins.Init(GameObject.Find("UIWin").transform);         
