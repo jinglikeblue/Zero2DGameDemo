@@ -36,3 +36,4 @@ sysinfo.txt
 *.unitypackage
 /Assets/@Temp
 /Caches
+/ILProject/codes
