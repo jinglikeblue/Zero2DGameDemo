@@ -72,6 +72,11 @@ namespace IL
             _layer.ShowASync<T>(data, OnASyncShow, onCreated, onProgress);                        
         }
 
+        public void SwitchASync(Type type, object data = null, Action<AView> onCreated = null, Action<float> onProgress = null)
+        {
+            _layer.ShowASync(type, data, OnASyncShow, onCreated, onProgress);
+        }
+
         private void OnASyncShow(AView view, object token)
         {
             var onCreated = token as Action<AView>;
