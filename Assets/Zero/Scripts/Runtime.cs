@@ -73,14 +73,13 @@ namespace Zero
         public LocalResVerModel localResVer;
 
         /// <summary>
-        /// 是否允许从Resources加载数据
+        /// 是否使用AssetDataBase加载资源
         /// </summary>
-        public bool IsLoadABFromResources
+        public bool IsLoadAssetsByAssetDataBase
         {
             get
             {
-                if (false == _vo.isHotResProject || 
-                    _vo.hotResMode == EHotResMode.RESOURCES)
+                if(_vo.isHotResProject && _vo.hotResMode == EHotResMode.ASSET_DATA_BASE)
                 {
                     return true;
                 }
@@ -91,11 +90,11 @@ namespace Zero
         /// <summary>
         /// 是否是从网络加载资源
         /// </summary>
-        public bool IsLoadFromNet
+        public bool IsLoadAssetsFromNet
         {
             get
             {
-                if (_vo.hotResMode == EHotResMode.NET)
+                if (_vo.hotResMode == EHotResMode.NET_ASSET_BUNDLE)
                 {
                     return true;
                 }
@@ -104,7 +103,7 @@ namespace Zero
         }
 
         /// <summary>
-        /// 是否是内嵌资源项目
+        /// 是否是热更资源项目
         /// </summary>
         public bool IsHotResProject
         {
@@ -148,15 +147,15 @@ namespace Zero
                         platform = "pc";
 #endif
                     streamingAssetsPath = string.Format("file://{0}/StreamingAssets/", Application.dataPath);
-                    if (_vo.hotResMode == EHotResMode.LOCAL || _vo.hotResMode == EHotResMode.RESOURCES)
+                    if (IsLoadAssetsFromNet)
                     {
-                        netResDir = FileSystem.CombineDirs(true, _vo.localResRoot, platform);
-                        localResDir = netResDir;                        
+                        netResDir = FileSystem.CombineDirs(true, _vo.netRoot, platform);
+                        localResDir = FileSystem.CombineDirs(true, Directory.GetParent(Application.dataPath).FullName, "Caches");                        
                     }
                     else
                     {
-                        netResDir = FileSystem.CombineDirs(true, _vo.netRoot, platform);
-                        localResDir = FileSystem.CombineDirs(true, Directory.GetParent(Application.dataPath).FullName, "Caches");
+                        netResDir = FileSystem.CombineDirs(true, _vo.localResRoot, platform);
+                        localResDir = netResDir;
                     }
                     break;
                 default:
