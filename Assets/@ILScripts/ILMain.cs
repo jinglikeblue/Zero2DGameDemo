@@ -21,7 +21,10 @@ namespace IL
             RegistViews();            
             Global.Ins.menu.ShowMenu();
 
-            AudioPlayer.Ins.PlayBGM(ResMgr.Ins.Load<AudioClip>("hot_res/audios/bgm"));
+            Global.Ins.bgmDevice = AudioDevice.Create("Bgm");
+            Global.Ins.effectDevice = AudioDevice.Create("Effect");
+
+            Global.Ins.bgmDevice.Play(ResMgr.Ins.Load<AudioClip>("hot_res/audios/bgm"));
 
             if (Debug.isDebugBuild)
             {

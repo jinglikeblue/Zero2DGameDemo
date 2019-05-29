@@ -38,7 +38,7 @@ namespace IL
 
         private void OnMoveStart(MoveableUnit obj)
         {
-            AudioPlayer.Ins.PlayEffect(ResMgr.Ins.Load<AudioClip>("hot_res/audios/push"));
+            Global.Ins.effectDevice.Play(ResMgr.Ins.Load<AudioClip>("hot_res/audios/push"));
         }
     }
 }

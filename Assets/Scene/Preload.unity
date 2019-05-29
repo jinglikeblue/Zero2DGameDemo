@@ -328,7 +328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fb33305963e0b40ab802beafca2dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectTrackCount: 10
 --- !u!4 &605128927
 Transform:
   m_ObjectHideFlags: 0
@@ -415,7 +414,7 @@ MonoBehaviour:
   runtimeCfg:
     isLogEnable: 1
     mainPrefab: hot_res/ILContent
-    isHotResProject: 1
+    isHotResProject: 0
     hotResMode: 1
     netRoot: http://wepieces.cn/unity/zero/2d_game_demo/res
     localResRoot: res

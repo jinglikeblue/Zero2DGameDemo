@@ -15,8 +15,18 @@ namespace Zero
         public Action<Collider> onTriggerStay;
         public Action<Collider> onTriggerExit;
 
+        /// <summary>
+        /// 获取GameObject的PhysicsEventListener事件组件
+        /// </summary>
+        /// <param name="gameObject"></param>
+        /// <returns></returns>
+        public static PhysicsEventListener Get(GameObject gameObject)
+        {
+            return ComponentUtil.AutoGet<PhysicsEventListener>(gameObject);
+        }
+
         private void OnCollisionEnter(Collision collision)
-        {            
+        {
             if (null != onCollisionEnter)
             {
                 onCollisionEnter.Invoke(collision);
