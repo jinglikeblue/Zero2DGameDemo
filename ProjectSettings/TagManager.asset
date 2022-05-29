@@ -47,3 +47,9 @@ TagManager:
   - name: Effect
     uniqueID: 923404191
     locked: 0
+  - name: UIPanel
+    uniqueID: 1362249895
+    locked: 0
+  - name: UIWin
+    uniqueID: 4129170419
+    locked: 0
